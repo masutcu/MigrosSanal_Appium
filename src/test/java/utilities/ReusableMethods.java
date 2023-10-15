@@ -2,6 +2,7 @@ package utilities;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
@@ -83,6 +84,7 @@ public class ReusableMethods {
         return elementFound;
     }
 
+    //Duration sınıfına değer atanırken Duration.ofSeconds() veya Duration.ofMinutes() kullanılır.
     public static void waitToBeVisible(WebElement element, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         wait.until(ExpectedConditions.visibilityOf(element));
@@ -98,6 +100,24 @@ public class ReusableMethods {
         driver.findElement(AppiumBy.ByAndroidUIAutomator.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+elementText+"\"))"));
 
         tapOn(driver.findElement(By.xpath("//android.widget.TextView[@text='" + elementText + "']")));
+    }
+    public void tapOnWithPoint(AppiumDriver driver, int x, int y) {
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(tap));
+    }
+    public void sendTextOnPoint(AppiumDriver driver, int x, int y) {
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(tap));
     }
 
     public static void tap(AppiumDriver driver, WebElement element) {

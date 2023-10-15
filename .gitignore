@@ -1,2 +1,6 @@
-/apps
-/target
+# Bu bir yorumdur ve dosyanın ne yaptığını açıklar
+
+/target/            # target/ dizinini görmezden gel
+apps/               # apps/ dizinini görmezden gel
+*.apk                # .apk adlı dosyayı görmezden gel
+

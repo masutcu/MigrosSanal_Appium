@@ -1,4 +1,10 @@
 @first
-Feature: main page
-  Scenario: main page
+Feature: Login steps
+  Background:  Application opens
     Given user goes main page
+
+    Scenario: Login Page
+      Given user taps on login button
+      Then user taps on _uyeOlVeyaGirisYap_ text
+      Then user taps on _uyeOl_ button
+      And user taps on telNumber input field

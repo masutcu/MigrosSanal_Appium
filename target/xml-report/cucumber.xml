@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="12.034" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="main page" name="main page" time="11.814">
+<testsuite name="Cucumber" time="24.311" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login steps" name="Login Page" time="24.073">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
+Given user taps on login button.............................................passed
+Then user taps on _uyeOlVeyaGirisYap_ text..................................passed
+Then user taps on _uyeOl_ button............................................passed
+And user taps on telNumber input field......................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
