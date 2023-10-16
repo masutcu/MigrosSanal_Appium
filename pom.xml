@@ -108,6 +108,15 @@
             <artifactId>cucumber-java</artifactId>
             <version>7.13.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+
+
     </dependencies>
     <build>
         <plugins>
@@ -119,7 +128,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <skipTests>false</skipTests>
                     <includes>
-                        <include>**/runners/*TestRunner*.java</include>
+                        <include>**/runner/*Runner*.java</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -146,7 +155,7 @@
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
-                <version>5.0.0</version>
+                <version>5.7.5</version>
                 <executions>
                     <execution>
                         <id>execution</id>

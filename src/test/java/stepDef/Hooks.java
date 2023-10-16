@@ -2,11 +2,10 @@ package stepDef;
 
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import utilities.ReusableMethods;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -18,17 +17,31 @@ public class Hooks {
     public static AppiumDriverLocalService server;
 
 
+    /*
+    @BeforeAll
+    public static void openCMD() throws IOException{
+
+        try{
+            String command = "cmd /c start appium";
+            //Starting the appium
+            Process process= Runtime.getRuntime().exec(command);
+            System.out.println("prosess is Alive "+process.isAlive());
+
+        }catch (Exception e){
+            System.out.println("Error : "+e);
+        }
+        ReusableMethods.wait(10);
+    }
+    */
+
     @Before
     public void setUp() throws InterruptedException {
 
         AppiumServiceBuilder builder = new AppiumServiceBuilder();
         builder
-//                .withAppiumJS(new File("C:\\Users\\Mustafa\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
-//                .usingDriverExecutable(new File("C:\\Users\\Mustafa\\.appium\\node_modules\\appium-reporter-plugin\\node_modules\\util-deprecate\\node.js"))
                 .withIPAddress("127.0.0.1")
                 .usingPort(4723)
                 .withTimeout(Duration.ofSeconds(30));
-
 
         try {
             server = AppiumDriverLocalService.buildService(builder);
@@ -75,13 +88,22 @@ public class Hooks {
         // Driver.quitAppiumDriver();
     }
 
-    public void forceStopAppiumServer() {
 
-        try {
-            Runtime.getRuntime().exec("taskkill /F /IM node.exe");
-            Runtime.getRuntime().exec("taskkill /F /IM cmd.exe");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+/* Allure dependency yi kaldırdık. çalışmıyor
+    @AfterAll
+    public static void openAllure() throws IOException{
+        try{
+            String command = "cmd /c allure serve allure-results";
+            //Starting the appium
+            Process process= Runtime.getRuntime().exec(command);
+            System.out.println("prosess is Alive "+process.isAlive());
+
+        }catch (Exception e){
+            System.out.println("Error : "+e);
         }
+        ReusableMethods.wait(10);
+
     }
+
+ */
 }

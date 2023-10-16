@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="56.871" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login steps" name="Login Page" time="56.633">
+<system-out><![CDATA[
+Given user goes main page...................................................passed
+Given user taps on login button.............................................passed
+Then user taps on _uyeOlVeyaGirisYap_ text..................................passed
+Then user taps on _uyeOl_ button............................................passed
+And user taps on telNumber input field......................................passed
+Then user enters own number "5531610100"....................................passed
+]]></system-out>
+</testcase>
+</testsuite>
