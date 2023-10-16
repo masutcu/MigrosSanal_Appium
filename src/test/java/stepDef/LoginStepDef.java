@@ -71,7 +71,7 @@ public class LoginStepDef extends ReusableMethods {
                 case "8" : tapOnWithPoint(Driver.getDriver(),408,2015); break;
                 case "9" : tapOnWithPoint(Driver.getDriver(),667,2015); break;
                 case "0" : tapOnWithPoint(Driver.getDriver(),408,2174); break;
-            } wait(2);
+            } wait(1);
 
         }
         tapOnWithPoint(Driver.getDriver(),517,871);
@@ -79,4 +79,8 @@ public class LoginStepDef extends ReusableMethods {
     }
 
 
+    @And("verify user passes the sms page")
+    public void verifyUserPassesTheSmsPage() {
+        Assert.assertTrue(locate.smsPage.isDisplayed());
+    }
 }

@@ -15,6 +15,10 @@ public class LoginScreen extends MainScreen{
     @FindBy(xpath = "//android.widget.Button[@text='Giriş Yap']")
     public WebElement girisYapButton;
 
+    @FindBy(xpath = "//android.widget.TextView[@text='Telefonunu Doğrula']")
+    public WebElement smsPage;
+
+
 
 
 
