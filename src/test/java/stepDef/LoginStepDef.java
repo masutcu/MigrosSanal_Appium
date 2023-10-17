@@ -27,15 +27,12 @@ public class LoginStepDef extends ReusableMethods {
 
     @Then("user taps on _uyeOlVeyaGirisYap_ text")
     public void userTapsOn_uyeOlVeyaGirisYap_Text() {
-        wait(2);
-        locate.uyeOlGirisButton.click();
+        tapOn(locate.uyeOlGirisButton);
     }
 
     @Then("user taps on _uyeOl_ button")
     public void userTapsOn_uyeOl_Button() {
-        wait(2);
-        locate.girisYapButton.click();
-
+        tapOn(locate.uyeOlButton);
     }
 
     @And("user taps on telNumber input field")
@@ -82,5 +79,44 @@ public class LoginStepDef extends ReusableMethods {
     @And("verify user passes the sms page")
     public void verifyUserPassesTheSmsPage() {
         Assert.assertTrue(locate.smsPage.isDisplayed());
+    }
+
+    @Then("user taps on _girisYap_ button")
+    public void userTapsOn_girisYap_Button() {
+        tapOn(locate.girisYapButton);
+    }
+    @Then("user enters telnumber {string}")
+    public void user_enters_telnumber(String string) {
+        locate.telNoSignUp.sendKeys("5531610100");
+    }
+    @Then("user enters mailAdress {string}")
+    public void user_enters_mail_adress(String string) {
+        locate.eMailSignUp.sendKeys("masutcu@gmail.com");
+    }
+    @Then("user selects uyelikSozlesmesi checkBox")
+    public void user_selects_uyelik_sozlesmesi_check_box() {
+        locate.uyelikSozlesmesiCB.click();
+    }
+    @Then("Verify that uyelikSozlesmesi box checked")
+    public void verify_that_uyelik_sozlesmesi_box_checked() {
+        wait(1);
+        System.out.println("uyelikSozlesmesiCB = " + locate.uyelikSozlesmesiCB.getAttribute("checked"));
+        Assert.assertEquals("true",locate.uyelikSozlesmesiCB.getAttribute("checked"));
+
+    }
+    @Then("user selects kullanıcıIzni checkBox")
+    public void user_selects_kullanıcı_izni_check_box() {
+       locate.iletisimIzniCB.click();
+    }
+    @Then("Verify that kullanıcıIzni box checked")
+    public void verify_that_kullanıcı_izni_box_checked() {
+        wait(1);
+        System.out.println("iletisimIzniCB = " + locate.iletisimIzniCB.getAttribute("checked"));
+        Assert.assertEquals("true",locate.iletisimIzniCB.getAttribute("checked"));
+    }
+
+    @Then("user clicks uyeOl button")
+    public void userClicksUyeOlButton() {
+        locate.uyeOlButton.click();
     }
 }

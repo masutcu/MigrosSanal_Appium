@@ -14,9 +14,24 @@ public class LoginScreen extends MainScreen{
     public WebElement uyeOlGirisButton;
     @FindBy(xpath = "//android.widget.Button[@text='Giriş Yap']")
     public WebElement girisYapButton;
+    @FindBy(xpath = "//android.widget.Button[@text='Üye Ol']")
+    public WebElement uyeOlButton;
 
     @FindBy(xpath = "//android.widget.TextView[@text='Telefonunu Doğrula']")
     public WebElement smsPage;
+    @FindBy(xpath = "//android.widget.EditText[@text='Telefon Numarası']")
+    public WebElement telNoSignUp;
+    @FindBy(xpath = "//android.widget.EditText[@text='E-posta']")
+    public WebElement eMailSignUp;
+    @FindBy(id = "com.inomera.sm:id/privacyAgreementCheckBox")
+    public WebElement  uyelikSozlesmesiCB;
+    @FindBy(id = "com.inomera.sm:id/communicationAgreementCheckBox")
+    public WebElement  iletisimIzniCB;
+
+
+
+
+
 
 
 
