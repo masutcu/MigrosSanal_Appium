@@ -119,4 +119,6 @@ public class LoginStepDef extends ReusableMethods {
     public void userClicksUyeOlButton() {
         locate.uyeOlButton.click();
     }
+
+
 }

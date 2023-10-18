@@ -3,7 +3,7 @@ package stepDef;
 import io.cucumber.java.en.Given;
 import utilities.Driver;
 
-public class firstStepDef {
+public class FirstStepDef {
 
 
     @Given("user goes main page")
