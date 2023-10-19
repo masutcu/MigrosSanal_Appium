@@ -16,8 +16,8 @@ import static utilities.Driver.isAppiumServerRunning;
 public class Hooks {
     public static AppiumDriverLocalService server;
 
+/*
 
-    /*
     @BeforeAll
     public static void openCMD() throws IOException{
 
@@ -89,7 +89,7 @@ public class Hooks {
     }
 
 
-/* Allure dependency yi kaldırdık. çalışmıyor
+    /* Allure dependency yi kaldırdık. çalışmıyor
     @AfterAll
     public static void openAllure() throws IOException{
         try{

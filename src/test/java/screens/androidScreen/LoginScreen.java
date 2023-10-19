@@ -1,5 +1,6 @@
 package screens.androidScreen;
 
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class LoginScreen extends MainScreen{
 
-    @FindBy(id = "com.inomera.sm:id/imageViewProfile")
+    @FindBy (id = "com.inomera.sm:id/imageViewProfile")
     public WebElement  loginButton;
     @FindBy(xpath = "//android.widget.TextView[@text='Üye Ol veya Giriş Yap']")
     public WebElement uyeOlGirisButton;

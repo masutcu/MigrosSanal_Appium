@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class MainSubTitleScreen {
+public class MainSubTitleScreen extends MainScreen {
 
     @FindBy(className = "android.widget.Button")
     public List<WebElement> canpaignTitle;
