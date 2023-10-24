@@ -334,11 +334,11 @@ public class ReusableMethods {
      * @param option alanına 'Pahalıdan Ucuza' veya 'Ucuzdan Pahalıya' gelmelidir.
      */
     public static void validateProductsSortingByPrice(String option)  {
-        List<WebElement> priceList1= Driver.getDriver().findElements(By.id(("com.mobisoft.kitapyurdu:id/textViewLeftPrice")));
+        List<WebElement> priceList1= Driver.getDriver().findElements(By.id(("com.inomera.sm:id/final_price_text_view")));
         int sizeOfList=priceList1.size();
 
 
-        if(option.equals("Ucuzdan Pahalıya")){
+        if(option.equals("Önce En Düşük Fiyat")){
 
 
             for (int n = 0; n < priceList1.size()-1; n++) {
@@ -352,7 +352,7 @@ public class ReusableMethods {
 
             }
 
-        } else if (option.equals("Pahalıdan Ucuza")) {
+        } else if (option.equals("Önce En Yüksek Fiyat")) {
 
 
 
