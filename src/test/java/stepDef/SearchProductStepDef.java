@@ -1,12 +1,16 @@
 package stepDef;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.devtools.v85.input.model.TouchPoint;
 import org.openqa.selenium.support.ui.Wait;
 import screens.androidScreen.MainScreen;
 import screens.androidScreen.ProductScreen;
@@ -23,15 +27,11 @@ public class SearchProductStepDef extends ReusableMethods {
         wait(1);
     }
 
-    @Given("user enters {string} in search input")
-    public void userEntersInSearchInput(String arg0) {
-        locate.searchItem.sendKeys(arg0);
-        tapOn(locate.searchItem);
-        wait(1);
 
-    }
     @Then("user taps on search icon on keyboard")
     public void userTapsOnSearchIconOnKeyboard() {
+     // ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
+
         tapOnWithPoint(Driver.getDriver(),991,2174);
     }
 
@@ -71,5 +71,14 @@ public class SearchProductStepDef extends ReusableMethods {
         String locateOption="//android.widget.RadioButton[@text='"+sortBy+"']";
         Driver.getDriver().findElement(By.xpath(locateOption)).click();
         wait(2);
+    }
+
+    @When("user enters {string} in search box")
+    public void userEntersInSearchBox(String text) {
+
+        locate.searchItem.sendKeys(text);
+
+        tapOn(locate.searchItem);
+        wait(1);
     }
 }

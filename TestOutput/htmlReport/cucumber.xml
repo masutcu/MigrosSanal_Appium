@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="30.764" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Product steps" name="Sort Product By Price" time="30.504">
+<testsuite name="Cucumber" time="23.646" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search steps" name="SearchBox Field" time="23.142">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
 Given user taps on searchBox................................................passed
-When user enters "çay" in search input......................................passed
+When user enters "elma" in search box.......................................passed
 Then user taps on search icon on keyboard...................................passed
-And user taps on sortButton.................................................passed
-And user taps on "Önce En Düşük Fiyat" option...............................passed
-And user taps on uygulaButton...............................................passed
-And Verify that the products are sorted from "Önce En Düşük Fiyat"..........passed
 ]]></system-out>
 </testcase>
 </testsuite>

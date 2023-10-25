@@ -6,7 +6,7 @@ Feature: Search steps
 
   Scenario: SearchBox Field
     Given user taps on searchBox
-    When user enters "çay" in search input
+    When user enters "elma" in search box
     Then user taps on search icon on keyboard
 
 
