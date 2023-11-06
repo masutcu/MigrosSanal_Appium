@@ -1,5 +1,6 @@
 package utilities;
 
+
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
@@ -11,6 +12,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import io.cucumber.core.logging.LoggerFactory;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -26,6 +28,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
+import java.util.logging.Logger;
 
 import static java.lang.Double.parseDouble;
 
@@ -412,8 +415,20 @@ public class ReusableMethods {
 
         Assert.assertEquals(actualElementSize , expectedElementSize);
     }
-    public  static void keyboardControl() throws InterruptedException {
+        public static void openFileWithPowershall(String path){
 
-    }
+            //powerShell açarak ses dosyamızı açıyoruz
+            try {
+                String sesDosyasiYolu = ""+path+""; // Ses dosyasının yolu
+                ProcessBuilder processBuilder = new ProcessBuilder("powershell.exe", "Start-Process", "-FilePath", sesDosyasiYolu, "-Wait");
+                processBuilder.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+
 
 }

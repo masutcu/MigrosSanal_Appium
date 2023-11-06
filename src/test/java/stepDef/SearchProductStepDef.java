@@ -81,4 +81,16 @@ public class SearchProductStepDef extends ReusableMethods {
         tapOn(locate.searchItem);
         wait(1);
     }
+
+    @Given("user taps on microphone button")
+    public void userTapsOnMicrophoneButton() {
+        locate.microphone.click();
+        wait(2);
+    }
+
+    @Then("loads sampleVoiceFile")
+    public void loadsSampleVoiceFile() {
+        openFileWithPowershall("voice.wav");
+
+    }
 }

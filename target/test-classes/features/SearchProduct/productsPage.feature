@@ -6,7 +6,7 @@ Feature: Product steps
 
   Scenario: ProductPage Field
     Given user taps on searchBox
-    When user enters "çay" in search input
+    When user enters "çay" in search box
     Then user taps on search icon on keyboard
     And Verify that the product displayed is correct
 

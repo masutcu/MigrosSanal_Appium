@@ -6,7 +6,7 @@ Feature: Product steps
 
   Scenario: Sort Product By Price
     Given user taps on searchBox
-    When user enters "çay" in search input
+    When user enters "çay" in search box
     Then user taps on search icon on keyboard
     And user taps on sortButton
     And user taps on "Önce En Düşük Fiyat" option

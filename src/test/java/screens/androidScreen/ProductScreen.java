@@ -24,5 +24,10 @@ public class ProductScreen extends MainScreen{
     @FindBy(id = "com.inomera.sm:id/final_price_text_view")
     public List<WebElement> prices;
 
+    @FindBy(id = "com.inomera.sm:id/microphoneImageButton")
+    public WebElement microphone;
+
+
+
 
 }

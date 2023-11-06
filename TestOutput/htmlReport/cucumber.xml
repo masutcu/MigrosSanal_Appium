@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="23.646" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Search steps" name="SearchBox Field" time="23.142">
+<testsuite name="Cucumber" time="29.248" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search By Voice Test" name="Search by Voice Test" time="28.975">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-Given user taps on searchBox................................................passed
-When user enters "elma" in search box.......................................passed
-Then user taps on search icon on keyboard...................................passed
+Given user taps on microphone button........................................passed
+Then loads sampleVoiceFile..................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
