@@ -93,4 +93,47 @@ public class SearchProductStepDef extends ReusableMethods {
         openFileWithPowershall("voice.wav");
 
     }
+
+    @And("user taps on filterButton")
+    public void userTapsOnFilterButton() {
+        locate.filterButton.click();
+    }
+
+    @Given("user select filter by {string}")
+    public void userSelectFilterBy(String arg0) {
+        String filterOption="//android.widget.TextView[@text='"+arg0+"']";
+        Driver.getDriver().findElement(By.xpath(filterOption)).click();
+
+    }
+
+    @Then("user select checkBox and tap on Uygula button")
+    public void userSelectCheckBoxAndTapOnUygulaButton() {
+        locate.indirimCheckBox.click();
+        wait(1);
+        locate.OKButton.click();
+        wait(1);
+    }
+
+    @Then("user select first {int} options")
+    public void userSelectFirstOptions(int markaSayısı) {
+        if(locate.markalarCheckBox.size()>=markaSayısı) {
+            for (int i = 0; i < markaSayısı; i++) {
+                locate.markalarCheckBox.get(i).click();
+                wait(1);
+            }
+        }else locate.markalarCheckBox.get(0).click();
+
+    }
+
+
+    @And("user taps on OKButton")
+    public void userTapsOnOKButton() {
+        locate.OKButton.click();
+        wait(1);
+    }
+
+    @And("user taps on OKButton again")
+    public void userTapsOnOKButtonAgain() {
+        locate.viewProductButton.click();
+    }
 }

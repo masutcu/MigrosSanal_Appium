@@ -27,6 +27,26 @@ public class ProductScreen extends MainScreen{
     @FindBy(id = "com.inomera.sm:id/microphoneImageButton")
     public WebElement microphone;
 
+    @FindBy(id = "com.inomera.sm:id/tvFilter")
+    public WebElement filterButton;
+
+    @FindBy(className = "android.widget.CheckBox")
+    public WebElement indirimCheckBox;
+
+    @FindBy(id = "com.inomera.sm:id/buttonViewProducts")
+    public WebElement OKButton;
+
+    @FindBy(className = "android.widget.CheckBox")
+    public List<WebElement> markalarCheckBox;
+
+    @FindBy(id = "com.inomera.sm:id/btn_view_products")
+    public WebElement viewProductButton;
+
+
+
+
+
+
 
 
 
