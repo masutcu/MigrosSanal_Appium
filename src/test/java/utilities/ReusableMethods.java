@@ -428,6 +428,89 @@ public class ReusableMethods {
 
         }
 
+    public static void typeWithKeyBoard(String word){
+
+        for (char c : word.toCharArray()) {
+            System.out.print("c : " + c);
+            char a = Character.toUpperCase(c);
+            // Varsayalım ki büyük harf karakter 'A' tuşuna basımını taklit etmek istiyorsunuz
+            if (a == 'A') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.A));
+            } else if (a == 'B') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.B));
+            } else if (a == 'C') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.C));
+            } else if (a == 'D') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.D));
+            } else if (a == 'E') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.E));
+            } else if (a == 'F') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.F));
+            } else if (a == 'G') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.G));
+            } else if (a == 'Ğ') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.G));
+            } else if (a == 'H') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.H));
+            } else if (a == 'I') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.I));
+            } else if (a == 'İ') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.I));
+            } else if (a == 'J') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.J));
+            } else if (a == 'K') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.K));
+            } else if (a == 'L') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.L));
+            } else if (a == 'M') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.M));
+            } else if (a == 'N') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.N));
+            } else if (a == 'O') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.O));
+            } else if (a == 'Ö') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.O));
+            } else if (a == 'P') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.P));
+            } else if (a == 'R') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.R));
+            } else if (a == 'S') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.S));
+            } else if (a == 'Ş') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.S));
+            } else if (a == 'T') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.T));
+            } else if (a == 'U') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.U));
+            } else if (a == 'Ü') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.U));
+            } else if (a == 'V') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.V));
+            } else if (a == 'Y') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.Y));
+            } else if (a == 'Z') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.Z));
+            } else if (a == 'W') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.W));
+            } else if (a == 'X') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.X));
+            } else if (a == ' ') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.SPACE));
+            } else if (a == ',') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.COMMA));
+            } else if (a == '.') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.PERIOD));
+
+            } else {
+                System.out.println("karakter tanımlaması yapılmamış. ");
+
+            }
+
+
+        }
+
+    }
+
 
 
 

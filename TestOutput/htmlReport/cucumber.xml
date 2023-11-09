@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="37.69" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Product steps" name="Filter by Discounts" time="37.355">
+<testsuite name="Cucumber" time="27.018" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search steps" name="SearchBox Field" time="26.771">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-When user taps on searchBox.................................................passed
-Then user enters "elma" in search box.......................................passed
-And user taps on search icon on keyboard....................................passed
-And user taps on filterButton...............................................passed
-Given user select filter by "İndirimler"....................................passed
-Then user select checkBox and tap on Uygula button..........................passed
-And user select filter by "Markalar"........................................passed
-Then user select first 3 options............................................passed
-And user taps on OKButton...................................................passed
-Then user select filter by "Sağlıklı Yaşam".................................passed
-And user select first 2 options.............................................passed
-And user taps on OKButton again.............................................passed
+Given user taps on searchBox................................................passed
+When user search "sab ah.kah,ves+i" with keyboard...........................passed
+Then user taps on search icon on keyboard...................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

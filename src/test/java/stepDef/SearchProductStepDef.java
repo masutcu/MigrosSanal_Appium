@@ -9,15 +9,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.devtools.v85.input.model.TouchPoint;
-import org.openqa.selenium.support.ui.Wait;
-import screens.androidScreen.MainScreen;
 import screens.androidScreen.ProductScreen;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.time.Duration;
+
 
 public class SearchProductStepDef extends ReusableMethods {
     ProductScreen locate = new ProductScreen();
@@ -30,9 +26,9 @@ public class SearchProductStepDef extends ReusableMethods {
 
     @Then("user taps on search icon on keyboard")
     public void userTapsOnSearchIconOnKeyboard() {
-     // ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
+      ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
 
-        tapOnWithPoint(Driver.getDriver(),991,2174);
+        //tapOnWithPoint(Driver.getDriver(),991,2174);
     }
 
     @And("Verify that the product displayed is correct")
@@ -77,7 +73,6 @@ public class SearchProductStepDef extends ReusableMethods {
     public void userEntersInSearchBox(String text) {
 
         locate.searchItem.sendKeys(text);
-
         tapOn(locate.searchItem);
         wait(1);
     }
@@ -135,5 +130,11 @@ public class SearchProductStepDef extends ReusableMethods {
     @And("user taps on OKButton again")
     public void userTapsOnOKButtonAgain() {
         locate.viewProductButton.click();
+    }
+
+    @When("user search {string} with keyboard")
+    public void userSearchWithKeyboard(String kelime) {
+        typeWithKeyBoard(kelime);
+
     }
 }
