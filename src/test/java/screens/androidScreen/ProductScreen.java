@@ -9,6 +9,15 @@ import java.util.List;
 public class ProductScreen extends MainScreen{
     @FindBy(id = "com.inomera.sm:id/textInputEditText")
     public WebElement searchBox;
+    @FindBy(id = "com.inomera.sm:id/materialTextViewServiceSelectionSearchSearchResultSearch")
+    public WebElement searchBox2;
+
+    @FindBy(id = "com.inomera.sm:id/shapeableBottomMButton")
+    public WebElement migrosSanal;
+
+
+
+
     @FindBy(id = "com.inomera.sm:id/searchTextInputEditText")
     public WebElement searchItem;
 

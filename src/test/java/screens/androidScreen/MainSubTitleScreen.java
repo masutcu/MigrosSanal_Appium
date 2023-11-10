@@ -16,6 +16,14 @@ public class MainSubTitleScreen extends MainScreen {
     @FindBy(className = "android.widget.ImageButton")
     public WebElement reIcon;
 
+    @FindBy(id = "com.inomera.sm:id/tvCampaignsCount")
+    public WebElement campaingPageNum;
+
+    @FindBy(id = "com.inomera.sm:id/ivBannerImage")
+    public WebElement campaingPageImg;
+
+
+
 
 
 

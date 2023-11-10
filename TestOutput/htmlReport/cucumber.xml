@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="27.018" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Search steps" name="SearchBox Field" time="26.771">
+<testsuite name="Cucumber" time="50.407" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login steps" name="Scroll mainpage catalog" time="50.153">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-Given user taps on searchBox................................................passed
-When user search "sab ah.kah,ves+i" with keyboard...........................passed
-Then user taps on search icon on keyboard...................................passed
+Given verify campaing page count............................................passed
+Then user swipe all campaing screen.........................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

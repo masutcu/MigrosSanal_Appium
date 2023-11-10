@@ -1,25 +1,18 @@
 package utilities;
 
 
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
+import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.pagefactory.AndroidBy;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
-import io.cucumber.core.logging.LoggerFactory;
+
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
-import org.openqa.selenium.support.FindBy;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,7 +21,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
-import java.util.logging.Logger;
+
 
 import static java.lang.Double.parseDouble;
 
@@ -112,7 +105,7 @@ public class ReusableMethods {
 
         tapOn(driver.findElement(By.xpath("//android.widget.TextView[@text='" + elementText + "']")));
     }
-    public void tapOnWithPoint(AppiumDriver driver, int x, int y) {
+    public static void tapOnWithPoint(AppiumDriver driver, int x, int y) {
 
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence tap = new Sequence(finger, 1);
@@ -178,7 +171,7 @@ public class ReusableMethods {
         driver.perform(Collections.singletonList(sequence));
     }
 
-    public static void scroll(AppiumDriver driver, int scroll) throws InterruptedException {
+    public static void scroll(AppiumDriver driver,  int scroll) throws InterruptedException {
         Dimension size = driver.manage().window().getSize();
         int startX = size.getWidth() / 2 ;
         int startY = size.getHeight() / 2 ;
@@ -204,26 +197,25 @@ public class ReusableMethods {
     }
 
     //Sağa kaydırma
-    public static void swipe(AppiumDriver driver, int scroll) throws InterruptedException {
-        Dimension size = driver.manage().window().getSize();
-        int startX = size.getWidth() / 2 ;
-        int startY = size.getHeight() / 2 ;
-        int endX = (int) (size.getWidth()*0.01);
-        int endY = startY;
-        //buradaki 0,25 şu şekildedir; imleç ekranın ortasında yani 0,50 de,
-        // x ekseninde 0,25 seçtiğimizde 0,50 den 0,25 e çekiyor yani sola  kayıyor.
-        // Eğer 0,75 deseydik ters yönde  kaydıracaktı. Ne kadar kaydıracağı ise değişiyor.
-
+    public static void swipeMethod(AppiumDriver driver, WebElement element, int scroll) throws InterruptedException {
+        int centerY=element.getRect().y+(element.getSize().height/2);
+        double startX= element.getRect().x+(element.getSize().width*0.9);
+        double endX= element.getRect().x+(element.getSize().width*0.1);
 
         PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 
         for (int i = 0; i <scroll ; i++) {
             Sequence sequence = new Sequence(finger1,1).
-                    addAction(finger1.createPointerMove(Duration.ZERO,PointerInput.Origin.viewport(), startX, startY)).
-                    addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg())).
+                    //move finger  into starting position
+                    addAction(finger1.createPointerMove(Duration.ZERO,PointerInput.Origin.viewport(), (int) startX, centerY)).
+                    //finger comes down into contact with screen
+                    addAction(finger1.createPointerDown(0)).
+
                     addAction(new Pause(finger1, Duration.ofMillis(100))).
-                    addAction(finger1.createPointerMove(Duration.ofMillis(400),PointerInput.Origin.viewport(),endX,endY)).
-                    addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+                    //finger moves to end position
+                    addAction(finger1.createPointerMove(Duration.ofMillis(700),PointerInput.Origin.viewport(),(int)endX,centerY)).
+                    //get up finger from screen
+                    addAction(finger1.createPointerUp(0));
 
             driver.perform(Collections.singletonList(sequence));}
         Thread.sleep(3000);
@@ -500,6 +492,123 @@ public class ReusableMethods {
                 ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.COMMA));
             } else if (a == '.') {
                 ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.PERIOD));
+            } else if (a == '-') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.MINUS));
+            } else if (a == '+') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.PLUS));
+            } else if (a == '@') {
+                ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.AT));
+
+            } else {
+                System.out.println("karakter tanımlaması yapılmamış. ");
+
+            }
+
+
+        }
+
+    }
+
+    /**
+     * Bu methoddaki keyboard tuş koordinatları ,
+     * 6 inç boyutlu Android bir emulator cihaza göre yazılmıştır.
+     * Cihaz değişiminde kodlar hata verecektir.
+     * @param word
+     */
+
+    public static void typeWithKeyBoardByRobot(String word){
+        for (char c : word.toCharArray()) {
+            System.out.print("c : " + c);
+            char a = Character.toUpperCase(c);
+            // Varsayalım ki büyük harf karakter 'A' tuşuna basımını taklit etmek istiyorsunuz
+            if (a == 'A') {
+                tapOnWithPoint(Driver.getDriver(),114,1872);
+            } else if (a == 'B') {
+                tapOnWithPoint(Driver.getDriver(),642,2031);
+            } else if (a == 'C') {
+                tapOnWithPoint(Driver.getDriver(),434,2031);
+            } else if (a == 'D') {
+                tapOnWithPoint(Driver.getDriver(),330,1872);
+            } else if (a == 'E') {
+                tapOnWithPoint(Driver.getDriver(),276,1722);
+            } else if (a == 'F') {
+                tapOnWithPoint(Driver.getDriver(),434,1872);
+            } else if (a == 'G') {
+                tapOnWithPoint(Driver.getDriver(),545,1872);
+            } else if (a == 'Ğ') {
+                tapOnWithPoint(Driver.getDriver(),545,1872);
+            } else if (a == 'H') {
+                tapOnWithPoint(Driver.getDriver(),649,1872);
+            } else if (a == 'I') {
+                tapOnWithPoint(Driver.getDriver(),807,1708);
+            } else if (a == 'İ') {
+                tapOnWithPoint(Driver.getDriver(),807,1708);
+            } else if (a == 'J') {
+                tapOnWithPoint(Driver.getDriver(),753,1872);
+            } else if (a == 'K') {
+                tapOnWithPoint(Driver.getDriver(),857,1872);
+            } else if (a == 'L') {
+                tapOnWithPoint(Driver.getDriver(),969,1872);
+            } else if (a == 'M') {
+                tapOnWithPoint(Driver.getDriver(),861,2027);
+            } else if (a == 'N') {
+                tapOnWithPoint(Driver.getDriver(),753,2031);
+            } else if (a == 'O') {
+                tapOnWithPoint(Driver.getDriver(),915,1722);
+            } else if (a == 'Ö') {
+                tapOnWithPoint(Driver.getDriver(),915,1722);
+            } else if (a == 'P') {
+                tapOnWithPoint(Driver.getDriver(),1022,1722);
+            } else if (a == 'R') {
+                tapOnWithPoint(Driver.getDriver(),377,1722);
+            } else if (a == 'S') {
+                tapOnWithPoint(Driver.getDriver(),219,1872);
+            } else if (a == 'Ş') {
+                tapOnWithPoint(Driver.getDriver(),219,1872);
+            } else if (a == 'T') {
+                tapOnWithPoint(Driver.getDriver(),491,1722);
+            } else if (a == 'U') {
+                tapOnWithPoint(Driver.getDriver(),703,1722);
+            } else if (a == 'Ü') {
+                tapOnWithPoint(Driver.getDriver(),703,1722);
+            } else if (a == 'V') {
+                tapOnWithPoint(Driver.getDriver(),542,2027);
+            } else if (a == 'Y') {
+                tapOnWithPoint(Driver.getDriver(),596,1722);
+            } else if (a == 'Z') {
+                tapOnWithPoint(Driver.getDriver(),219,2022);
+            } else if (a == 'W') {
+                tapOnWithPoint(Driver.getDriver(),169,1722);
+            } else if (a == 'X') {
+                tapOnWithPoint(Driver.getDriver(),326,2031);
+            } else if (a == ' ') {
+                tapOnWithPoint(Driver.getDriver(),563,2188);
+            } else if (a == ',') {
+                tapOnWithPoint(Driver.getDriver(),219,2181);
+            } else if (a == '.') {
+                tapOnWithPoint(Driver.getDriver(),861,2181);
+            } else if (a == '-') {
+                tapOnWithPoint(Driver.getDriver(),90,2185);
+                wait(1);
+                tapOnWithPoint(Driver.getDriver(),596,1880);
+                wait(1);
+                tapOnWithPoint(Driver.getDriver(),90,2185);
+                wait(1);
+
+            } else if (a == '+') {
+                tapOnWithPoint(Driver.getDriver(),90,2185);
+                wait(1);
+                tapOnWithPoint(Driver.getDriver(),703,1883);
+                wait(1);
+                tapOnWithPoint(Driver.getDriver(),90,2185);
+                wait(1);
+            } else if (a == '@') {
+                tapOnWithPoint(Driver.getDriver(),90,2185);
+                wait(1);
+                tapOnWithPoint(Driver.getDriver(),57,1876);
+                wait(1);
+                tapOnWithPoint(Driver.getDriver(),90,2185);
+                wait(1);
 
             } else {
                 System.out.println("karakter tanımlaması yapılmamış. ");
@@ -513,5 +622,8 @@ public class ReusableMethods {
 
 
 
+    }
 
-}
+
+
+

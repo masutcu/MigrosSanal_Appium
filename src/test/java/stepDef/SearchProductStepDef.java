@@ -1,5 +1,6 @@
 package stepDef;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -19,8 +20,10 @@ public class SearchProductStepDef extends ReusableMethods {
     ProductScreen locate = new ProductScreen();
     @Given("user taps on searchBox")
     public void userTapsOnSearchBox() {
-        tapOn(locate.searchBox);
-        wait(1);
+
+        locate.searchBox.click();
+        wait(2);
+
     }
 
 
@@ -28,7 +31,7 @@ public class SearchProductStepDef extends ReusableMethods {
     public void userTapsOnSearchIconOnKeyboard() {
       ((AndroidDriver) Driver.getDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
 
-        //tapOnWithPoint(Driver.getDriver(),991,2174);
+       // tapOnWithPoint(Driver.getDriver(),991,2174);
     }
 
     @And("Verify that the product displayed is correct")
@@ -136,5 +139,15 @@ public class SearchProductStepDef extends ReusableMethods {
     public void userSearchWithKeyboard(String kelime) {
         typeWithKeyBoard(kelime);
 
+    }
+
+    @When("user search {string} with keyboard by Robot")
+    public void userSearchWithKeyboardByRobot(String word) {
+        typeWithKeyBoardByRobot(word);
+    }
+
+    @And("verify keyboard appears on Screen")
+    public void verifyKeyboardAppearsOnScreen() {
+        System.err.println(((AndroidDriver) Driver.getDriver()).isKeyboardShown());
     }
 }

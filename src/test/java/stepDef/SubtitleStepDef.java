@@ -8,7 +8,9 @@ import org.openqa.selenium.By;
 import screens.androidScreen.MainSubTitleScreen;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.Swipe;
 
+import java.util.Arrays;
 
 
 public class SubtitleStepDef extends ReusableMethods {
@@ -52,5 +54,22 @@ public class SubtitleStepDef extends ReusableMethods {
     @And("user taps on return button")
     public void userTapsOnReturnButton() {
         locate.reIcon.click();
+    }
+
+    @Given("verify campaing page count")
+    public void verifyCampaingPageCount() throws InterruptedException {
+        System.out.println("locate.campaingPage.getText() = " + locate.campaingPageNum.getText());
+        System.out.println("locate.campaingPage.getText().substring(2,4) = " + locate.campaingPageNum.getText().substring(2,4));
+        int num=Integer.parseInt(locate.campaingPageNum.getText().substring(2,4));
+
+
+
+
+
+    }
+
+    @Then("user swipe all campaing screen")
+    public void userSwipeAllCampaingScreen() throws InterruptedException {
+        swipeMethod(Driver.getDriver(), locate.campaingPageImg,Integer.parseInt(locate.campaingPageNum.getText().substring(2,4)));
     }
 }
