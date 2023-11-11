@@ -208,16 +208,19 @@ public class ReusableMethods {
             Sequence sequence = new Sequence(finger1,1).
                     //move finger  into starting position
                     addAction(finger1.createPointerMove(Duration.ZERO,PointerInput.Origin.viewport(), (int) startX, centerY)).
-                    //finger comes down into contact with screen
+                    //finger comes down into contact with screen- mause sol click bas
                     addAction(finger1.createPointerDown(0)).
-
-                    addAction(new Pause(finger1, Duration.ofMillis(100))).
+                    //break time
+                    addAction(new Pause(finger1, Duration.ofMillis(500))).
                     //finger moves to end position
-                    addAction(finger1.createPointerMove(Duration.ofMillis(700),PointerInput.Origin.viewport(),(int)endX,centerY)).
-                    //get up finger from screen
+                    addAction(finger1.createPointerMove(Duration.ofMillis(500),PointerInput.Origin.viewport(),(int)endX,centerY)).
+                    //get up finger from screen - mause sol click kaldır
                     addAction(finger1.createPointerUp(0));
+                    //break time
+                    //addAction(new Pause(finger1, Duration.ofMillis(500)));
 
-            driver.perform(Collections.singletonList(sequence));}
+                    driver.perform(Collections.singletonList(sequence));}
+
         Thread.sleep(3000);
     }
 

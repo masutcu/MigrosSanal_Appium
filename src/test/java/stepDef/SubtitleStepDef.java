@@ -4,6 +4,7 @@ package stepDef;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import screens.androidScreen.MainSubTitleScreen;
 import utilities.Driver;
@@ -70,6 +71,20 @@ public class SubtitleStepDef extends ReusableMethods {
 
     @Then("user swipe all campaing screen")
     public void userSwipeAllCampaingScreen() throws InterruptedException {
-        swipeMethod(Driver.getDriver(), locate.campaingPageImg,Integer.parseInt(locate.campaingPageNum.getText().substring(2,4)));
+        swipeMethod(Driver.getDriver(), locate.campaingPageImg,Integer.parseInt(locate.campaingPageNum.getText().substring(2,4))-1);
+    }
+
+    @And("verify last scrolable page is displayed")
+    public void verifyLastScrolablePageIsDisplayed() {
+        System.out.println("toplam sayfa alanı = " + locate.campaingPageNum.getText());
+        String displayedPage=locate.campaingPageNum.getText().substring(0,2);
+        System.out.println("görüntülenen sayfa = " + locate.campaingPageNum.getText().substring(0,2));
+        String lastPage=locate.campaingPageNum.getText().substring(3,5);
+        System.out.println("son sayfa sayısı = " + locate.campaingPageNum.getText().substring(3,5));
+
+        Assert.assertTrue(displayedPage.equals(lastPage));
+
+
+
     }
 }

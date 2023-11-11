@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="50.407" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Login steps" name="Scroll mainpage catalog" time="50.153">
+<testsuite name="Cucumber" time="20.063" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search By Voice Test" name="Search by Voice Test" time="19.799">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-Given verify campaing page count............................................passed
-Then user swipe all campaing screen.........................................passed
+Given user taps on microphone button........................................passed
+Then loads sampleVoiceFile..................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

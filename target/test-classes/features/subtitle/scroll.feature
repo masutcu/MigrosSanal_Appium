@@ -7,3 +7,4 @@ Feature: Login steps
   Scenario: Scroll mainpage catalog
     Given verify campaing page count
     Then user swipe all campaing screen
+    And verify last scrolable page is displayed
