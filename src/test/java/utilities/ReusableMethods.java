@@ -198,6 +198,7 @@ public class ReusableMethods {
 
     //Sağa kaydırma
     public static void swipeMethod(AppiumDriver driver, WebElement element, int scroll) throws InterruptedException {
+
         int centerY=element.getRect().y+(element.getSize().height/2);
         double startX= element.getRect().x+(element.getSize().width*0.9);
         double endX= element.getRect().x+(element.getSize().width*0.1);
@@ -216,7 +217,7 @@ public class ReusableMethods {
                     addAction(finger1.createPointerMove(Duration.ofMillis(500),PointerInput.Origin.viewport(),(int)endX,centerY)).
                     //get up finger from screen - mause sol click kaldır
                     addAction(finger1.createPointerUp(0));
-                    //break time
+                    //break time- bu alana eklenen bekleme fail oluşturabiliyor. Yoruma alındı
                     //addAction(new Pause(finger1, Duration.ofMillis(500)));
 
                     driver.perform(Collections.singletonList(sequence));}
@@ -423,6 +424,14 @@ public class ReusableMethods {
 
         }
 
+    /**
+     * Bu method verilen String parametreyi parçalayarak
+     * Keyevent kütüphanesindeki keyCode değerlerine çeviriyor.
+     * Kullanırken girilen char değerlerinin method içinde tanımlanmış olması gereklidir.
+     * Tanımsız char eklenebilir.
+     * @param word
+     */
+
     public static void typeWithKeyBoard(String word){
 
         for (char c : word.toCharArray()) {
@@ -516,6 +525,7 @@ public class ReusableMethods {
      * Bu methoddaki keyboard tuş koordinatları ,
      * 6 inç boyutlu Android bir emulator cihaza göre yazılmıştır.
      * Cihaz değişiminde kodlar hata verecektir.
+     * Q klavyeye göre koordinatlar alınmıştır.
      * @param word
      */
 
