@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="20.912" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Search By Barcode" name="Search By barcode" time="20.631">
+<testsuite name="Cucumber" time="49.671" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Login steps" name="Scroll mainpage catalog" time="40.334">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-Given user taps on borcode icon.............................................passed
-Then verify device cam is open..............................................passed
-And verify frame Image View appeared........................................passed
+Given verify campaing page count............................................passed
+Then user swipe all campaing screen.........................................passed
+And verify last scrolable page is displayed.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login steps" name="Scroll down mainpage" time="9.083">
+<system-out><![CDATA[
+Given user goes main page...................................................passed
+Given Scroll 3 times down on MainPage.......................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -8,3 +8,6 @@ Feature: Login steps
     Given verify campaing page count
     Then user swipe all campaing screen
     And verify last scrolable page is displayed
+
+  Scenario: Scroll down mainpage
+    Given Scroll 3 times down on MainPage

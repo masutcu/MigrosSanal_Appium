@@ -87,4 +87,9 @@ public class SubtitleStepDef extends ReusableMethods {
 
 
     }
+
+    @Given("Scroll {int} times down on MainPage")
+    public void scrollTimesDownOnMainPage(int arg0) throws InterruptedException {
+        scroll(Driver.getDriver(),arg0);
+    }
 }
