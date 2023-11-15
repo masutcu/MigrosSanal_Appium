@@ -15,9 +15,6 @@ public class ProductScreen extends MainScreen{
     @FindBy(id = "com.inomera.sm:id/shapeableBottomMButton")
     public WebElement migrosSanal;
 
-
-
-
     @FindBy(id = "com.inomera.sm:id/searchTextInputEditText")
     public WebElement searchItem;
 
@@ -50,6 +47,15 @@ public class ProductScreen extends MainScreen{
 
     @FindBy(id = "com.inomera.sm:id/btn_view_products")
     public WebElement viewProductButton;
+
+    @FindBy(id = "com.inomera.sm:id/barcodeImageButton")
+    public WebElement barcodeButton;
+
+    @FindBy(id = "com.inomera.sm:id/barcodeSearchButton")
+    public WebElement textBarkodIleUrunArama;
+
+    @FindBy(id = "com.inomera.sm:id/frameImageView")
+    public WebElement frameImgView;
 
 
 

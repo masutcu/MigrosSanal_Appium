@@ -150,4 +150,25 @@ public class SearchProductStepDef extends ReusableMethods {
     public void verifyKeyboardAppearsOnScreen() {
         System.err.println(((AndroidDriver) Driver.getDriver()).isKeyboardShown());
     }
+
+    @Given("user taps on borcode icon")
+    public void userTapsOnBorcodeIcon() {
+        tapOn(locate.barcodeButton);
+        wait(1);
+    }
+
+    @Then("verify device cam is open")
+    public void verifyDeviceCamIsOpen() {
+
+        Assert.assertTrue(locate.textBarkodIleUrunArama.isDisplayed());
+        wait(1);
+
+
+    }
+
+    @And("verify frame Image View appeared")
+    public void verifyFrameImageViewAppeared() {
+        Assert.assertTrue(locate.frameImgView.isEnabled());
+
+    }
 }

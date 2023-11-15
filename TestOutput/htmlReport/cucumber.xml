@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="20.063" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Search By Voice Test" name="Search by Voice Test" time="19.799">
+<testsuite name="Cucumber" time="20.912" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search By Barcode" name="Search By barcode" time="20.631">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-Given user taps on microphone button........................................passed
-Then loads sampleVoiceFile..................................................passed
+Given user taps on borcode icon.............................................passed
+Then verify device cam is open..............................................passed
+And verify frame Image View appeared........................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
