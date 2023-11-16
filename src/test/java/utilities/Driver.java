@@ -3,6 +3,7 @@ package utilities;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.IOSDriver;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -32,6 +33,7 @@ public class Driver {
                     break;
                 case "IOS":
                     // IOS için ayarlar
+
                     break;
                 default:
                     throw new RuntimeException("Desteklenmeyen Platform: " + ConfigReader.getProperty("platformName"));

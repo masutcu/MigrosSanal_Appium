@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="49.671" tests="2" skipped="0" failures="0" errors="0">
-<testcase classname="Login steps" name="Scroll mainpage catalog" time="40.334">
+<testsuite name="Cucumber" time="26.395" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search steps" name="Delivery Methods - deliver to home" time="26.113">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-Given verify campaing page count............................................passed
-Then user swipe all campaing screen.........................................passed
-And verify last scrolable page is displayed.................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Login steps" name="Scroll down mainpage" time="9.083">
-<system-out><![CDATA[
-Given user goes main page...................................................passed
-Given Scroll 3 times down on MainPage.......................................passed
+Then user taps on delivery..................................................passed
+Given user taps on 'Adresime Gelsin' button.................................passed
+Then user enters delivery address...........................................passed
+And user taps on search icon on keyboard....................................passed
+And user selects suitable address option....................................passed
+And verify address from map.................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

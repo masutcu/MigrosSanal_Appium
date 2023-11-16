@@ -8,8 +8,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.bytebuddy.asm.Advice;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Wait;
 import screens.androidScreen.ProductScreen;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -170,5 +172,32 @@ public class SearchProductStepDef extends ReusableMethods {
     public void verifyFrameImageViewAppeared() {
         Assert.assertTrue(locate.frameImgView.isEnabled());
 
+    }
+
+    @Then("user taps on delivery")
+    public void userTapsOnDelivery() {
+        tapOn(locate.deliveryButton);
+    }
+
+    @Then("user enters delivery address")
+    public void userEntersDeliveryAddress() {
+        tapOn(locate.addressSearch);
+        wait(1);
+        locate.addressSearch.sendKeys("Kavaklı mahallesi Katip Celebi sokak No.19 Beylikdüzü İstanbul");
+        wait(2);
+
+    }
+
+    @And("user selects suitable address option")
+    public void userSelectsSuitableAddressOption() {
+        locate.addressOptions.get(0).click();
+    }
+
+    @And("verify address from map")
+    public void verifyAddressFromMap() {
+        wait(5);
+        String adres=locate.addressInfo.getText();
+        System.out.println("adres = " + adres);
+        Assert.assertTrue(adres.contains("Kavaklı"));
     }
 }

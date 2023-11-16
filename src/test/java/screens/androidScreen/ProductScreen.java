@@ -57,6 +57,18 @@ public class ProductScreen extends MainScreen{
     @FindBy(id = "com.inomera.sm:id/frameImageView")
     public WebElement frameImgView;
 
+    @FindBy(id = "com.inomera.sm:id/deliveryPreferenceConstraint")
+    public WebElement deliveryButton;
+
+    @FindBy(id = "com.inomera.sm:id/searchTextInputEditText")
+    public WebElement addressSearch;
+
+    @FindBy(id = "com.inomera.sm:id/address_description")
+    public List<WebElement> addressOptions;
+
+    @FindBy(id = "com.inomera.sm:id/addressInfoText")
+    public WebElement addressInfo;
+
 
 
 
