@@ -69,6 +69,10 @@ public class ProductScreen extends MainScreen{
     @FindBy(id = "com.inomera.sm:id/addressInfoText")
     public WebElement addressInfo;
 
+    @FindBy(id = "com.inomera.sm:id/townTextView")
+    public WebElement townViewField;
+
+
 
 
 

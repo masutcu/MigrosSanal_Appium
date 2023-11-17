@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="26.395" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Search steps" name="Delivery Methods - deliver to home" time="26.113">
+<testsuite name="Cucumber" time="27.209" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search steps" name="Delivery Methods - From Market" time="26.955">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
 Then user taps on delivery..................................................passed
-Given user taps on 'Adresime Gelsin' button.................................passed
-Then user enters delivery address...........................................passed
-And user taps on search icon on keyboard....................................passed
-And user selects suitable address option....................................passed
-And verify address from map.................................................passed
+Given user taps on 'Mağazadan Alacağım' button..............................passed
+Then user taps on 'Ankara' button...........................................passed
+And user taps on 'Yenimahalle' button.......................................passed
+And user taps on 'GALA SOKAĞI ANKARA MM' button.............................passed
+Then verify selected market on townView field...............................passed
 ]]></system-out>
 </testcase>
 </testsuite>

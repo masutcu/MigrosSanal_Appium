@@ -200,4 +200,11 @@ public class SearchProductStepDef extends ReusableMethods {
         System.out.println("adres = " + adres);
         Assert.assertTrue(adres.contains("Kavaklı"));
     }
+
+
+    @Then("verify selected market on townView field")
+    public void verifySelectedMarketOnTownViewField() {
+        System.out.println("Selected Market = " + locate.townViewField.getText());
+        Assert.assertTrue(locate.townViewField.getText().contains("GALA SOKAĞI"));
+    }
 }
