@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="27.209" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Search steps" name="Delivery Methods - From Market" time="26.955">
+<testsuite name="Cucumber" time="58.759" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Login steps" name="Scroll mainpage catalog" time="44.639">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-Then user taps on delivery..................................................passed
-Given user taps on 'Mağazadan Alacağım' button..............................passed
-Then user taps on 'Ankara' button...........................................passed
-And user taps on 'Yenimahalle' button.......................................passed
-And user taps on 'GALA SOKAĞI ANKARA MM' button.............................passed
-Then verify selected market on townView field...............................passed
+Given verify campaing page count............................................passed
+Then user swipe all campaing screen.........................................passed
+And verify last scrolable page is displayed.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login steps" name="Scroll down mainpage" time="13.833">
+<system-out><![CDATA[
+Given user goes main page...................................................passed
+Given Scroll 3 times down on MainPage.......................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

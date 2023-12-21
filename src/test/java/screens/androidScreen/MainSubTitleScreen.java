@@ -22,6 +22,10 @@ public class MainSubTitleScreen extends MainScreen {
     @FindBy(id = "com.inomera.sm:id/ivBannerImage")
     public WebElement campaingPageImg;
 
+    @FindBy(id = "com.inomera.sm:id/action_bar_root")
+    public WebElement anaSayfaTum;
+
+
 
 
 

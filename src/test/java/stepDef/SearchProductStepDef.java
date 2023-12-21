@@ -207,4 +207,13 @@ public class SearchProductStepDef extends ReusableMethods {
         System.out.println("Selected Market = " + locate.townViewField.getText());
         Assert.assertTrue(locate.townViewField.getText().contains("GALA SOKAĞI"));
     }
+
+    @Then("user taps on search box button")
+    public void userTapsOnSearchBoxButton() {
+        tapOn(locate.searchBox2);
+        locate.searchBox2.sendKeys("armut");
+
+
+
+    }
 }

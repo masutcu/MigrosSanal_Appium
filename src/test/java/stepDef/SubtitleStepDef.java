@@ -1,6 +1,7 @@
 package stepDef;
 
 
+import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -90,6 +91,7 @@ public class SubtitleStepDef extends ReusableMethods {
 
     @Given("Scroll {int} times down on MainPage")
     public void scrollTimesDownOnMainPage(int arg0) throws InterruptedException {
-        scroll(Driver.getDriver(),arg0);
+        scrollwithGestureCoordinate(Driver.getDriver(),arg0);
+        //scrollwithPI(Driver.getDriver(),arg0);
     }
 }

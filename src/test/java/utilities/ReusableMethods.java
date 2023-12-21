@@ -1,6 +1,7 @@
 package utilities;
 
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -13,6 +14,7 @@ import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -170,8 +172,18 @@ public class ReusableMethods {
 
         driver.perform(Collections.singletonList(sequence));
     }
+    public static void  scrollwithGestureCoordinate(AppiumDriver driver,  double percent){
+        driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100,"width", 400, "height", 800,
+                //Burada çerçevesini kendimiz çizdiğimiz sanal bir element oluşturuyoruz.
+                "direction", "down", //aşağı doğru, "up" desek yukarı yapar
+                "percent", percent, //3 tam ölçü kadar, 2 dersek 2 kez yapar
+                "speed", 500 //500 milisecond-yavaş çekim
+        ));
+    }
 
-    public static void scroll(AppiumDriver driver,  int scroll) throws InterruptedException {
+
+    public static void scrollwithPI(AppiumDriver driver,  int scroll) throws InterruptedException {
         Dimension size = driver.manage().window().getSize();
         int startX = size.getWidth() / 2 ;
         int startY = size.getHeight() / 2 ;
@@ -189,11 +201,12 @@ public class ReusableMethods {
                     addAction(finger1.createPointerMove(Duration.ZERO,PointerInput.Origin.viewport(), startX, startY)).
                     addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg())).
                     addAction(new Pause(finger1, Duration.ofMillis(100))).
-                    addAction(finger1.createPointerMove(Duration.ofMillis(300),PointerInput.Origin.viewport(),endX,endY)).
+                    addAction(finger1.createPointerMove(Duration.ofMillis(500),PointerInput.Origin.viewport(),endX,endY)).
                     addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
-            driver.perform(Collections.singletonList(sequence));}
-        Thread.sleep(3000);
+            driver.perform(Collections.singletonList(sequence));
+            Thread.sleep(1000);}
+
     }
 
     //Sağa kaydırma
@@ -257,7 +270,7 @@ public class ReusableMethods {
                 System.out.println("element.getText()111 = " + element.getText());
                 element.click();
                 break;
-            } else ReusableMethods.scroll(Driver.getDriver(), 1);
+            } else ReusableMethods.scrollwithPI(Driver.getDriver(), 1);
 
         }
 
@@ -285,7 +298,7 @@ public class ReusableMethods {
 
                 Assert.assertTrue(isElementPresent(element));
                 break;
-            } else scroll(Driver.getDriver(), 1);
+            } else scrollwithPI(Driver.getDriver(), 1);
             break;
         }
 
@@ -401,7 +414,7 @@ public class ReusableMethods {
                 break;
             }
 
-            scroll(Driver.getDriver(), 1);
+            scrollwithPI(Driver.getDriver(), 1);
             actualElementSize = elements.size();
 
 
