@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
                 "rerun:TestOutput/failed_scenario.txt"},
         features = "src/test/resources/features",
         glue = "stepDef",
-        tags = "@scrollPage",
+        tags = "",
 
         dryRun = false)
 
