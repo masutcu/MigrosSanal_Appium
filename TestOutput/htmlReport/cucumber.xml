@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="70.566" tests="2" skipped="0" failures="0" errors="0">
-<testcase classname="Login steps" name="Scroll mainpage catalog" time="56.628">
+<testsuite name="Cucumber" time="33.487" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Product steps" name="Sort Product By Price" time="33.254">
 <system-out><![CDATA[
 Given user goes main page...................................................passed
-Given verify campaing page count............................................passed
-Then user swipe all campaing screen.........................................passed
-And verify last scrolable page is displayed.................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Login steps" name="Scroll down mainpage" time="13.667">
-<system-out><![CDATA[
-Given user goes main page...................................................passed
-Given Scroll 3 times down on MainPage.......................................passed
+Given user taps on searchBox................................................passed
+When user enters "çay" in search box........................................passed
+Then user taps on search icon on keyboard...................................passed
+And user taps on sortButton.................................................passed
+And user taps on "Önce En Düşük Fiyat" option...............................passed
+And user taps on uygulaButton...............................................passed
+And Verify that the products are sorted from "Önce En Düşük Fiyat"..........passed
 ]]></system-out>
 </testcase>
 </testsuite>
